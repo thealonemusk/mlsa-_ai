@@ -45,7 +45,3 @@ Now, you are ready to run the project.
 ## Running the project
 
 After following the installation steps, you can run the project using your preferred IDE or from the terminal.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

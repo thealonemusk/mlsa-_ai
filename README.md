@@ -1,47 +1,35 @@
-# Handwritten Doctor Prescription Scan
+# Handwriting Recognition with TensorFlow and Keras
 
-This project is about scanning and processing handwritten doctor prescriptions.
+This project focuses on Optical Character Recognition (OCR) using TensorFlow and Keras, aiming to recognize handwritten text from the IAM Handwriting dataset. The implemented pipeline includes data preprocessing, building a deep learning model, and evaluating its performance.
 
-## Getting Started
+## Data Collection and Preparation
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+The notebook begins by fetching the IAM Handwriting dataset, organizing it into train, validation, and test subsets. The dataset contains handwritten words with associated labels.
 
-### Prerequisites
+## Data Input Pipeline
 
-You need to have Python3 installed on your system. You can download it from [here](https://www.python.org/downloads/).
+The data input pipeline involves preparing image paths, cleaning labels, and building character vocabularies. The dataset is processed to create TensorFlow `Dataset` objects, essential for training and validation.
 
-### Installing
+## Resizing Images without Distortion
 
-Follow these steps to run this project on your local system:
+To maintain image aspect ratios and prevent distortion, a method for distortion-free resizing of images is introduced. It ensures that images are resized without altering their content, crucial for maintaining accuracy in recognition.
 
-1. Clone the repository:
+## Model Architecture
 
-   
-   git clone <repository_link>
-   
-2. Navigate to the project directory:
+The OCR model is built using Convolutional Neural Networks (CNNs) combined with Recurrent Neural Networks (RNNs). The architecture involves several convolutional and LSTM layers, along with CTC (Connectionist Temporal Classification) loss as the endpoint layer.
 
-   
-   cd Handwritten_Doctor_Prescription_Scan
-   
-3. Create a virtual environment:
+## Training and Evaluation
 
-   
-   python3 -m venv venv
-   
-4. Activate the virtual environment:
+The training phase involves setting up the model, defining callbacks for monitoring edit distances, and training the model on the prepared datasets. Evaluation metrics such as edit distance and precision are used to assess the model's performance.
 
-   
-   source ./venv/bin/activate
-   
-5. Install the required modules:
+## Inference and Visualization
 
-   
-   pip install numpy pandas tensorflow matplotlib
-   
+The trained model is utilized to infer text from test samples. Visualizations are provided to showcase the model's predictions against the original text, offering insights into the model's accuracy.
 
-Now, you are ready to run the project.
+## Custom Image Prediction
 
-## Running the project
+An additional functionality is demonstrated to predict text from custom images. The model's ability to handle external images is exhibited, highlighting its potential for real-world applications.
 
-After following the installation steps, you can run the project using your preferred IDE or from the terminal.
+## Conclusion
+
+The project concludes by emphasizing the model's compatibility with TensorFlow Lite for mobile applications and discussing potential enhancements, such as Spatial Transformer Networks, to improve alignment and performance for complex sequences.
